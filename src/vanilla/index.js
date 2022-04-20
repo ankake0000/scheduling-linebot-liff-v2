@@ -3,7 +3,8 @@ import liff from '@line/liff'
 
 document.addEventListener("DOMContentLoaded", function() {
   liff
-    .init({ liffId: process.env.LIFF_ID })
+    //.init({ liffId: process.env.LIFF_ID })
+    .init({ liffId: '1657067583-yG60PoQa' })
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send').addEventListener('click', ()=> {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
               }]).then(function() {
                 document.getElementById('log').value += 'sendMessagesText completed\n';
               }).catch(function(error) {
-                document.getElementById('log').value += 'sendMessagesText()='+ liffId + error + '\n';
+                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
               });
             }
           });

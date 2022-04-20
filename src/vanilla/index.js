@@ -3,15 +3,16 @@ import liff from '@line/liff'
 
 document.addEventListener("DOMContentLoaded", function() {
   liff
-    //.init({ liffId: process.env.LIFF_ID })
-    .init({ liffId: '1657067583-yG60PoQa' })
+    .init({ liffId: process.env.LIFF_ID })
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send').addEventListener('click', ()=> {
             if (!liff.isInClient()) {
               document.getElementById('log').value += 'sendMessagesText ng\n';
             } else {
-              liff.sendMessages([{
+              liff
+              .init({ liffId: process.env.LIFF_ID })
+              .sendMessages([{
                 'type': 'text',
                 'text': document.getElementById('message').value
               }]).then(function() {

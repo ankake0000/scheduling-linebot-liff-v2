@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
               }]).then(function() {
                 document.getElementById('log').value += 'sendMessagesText completed\n';
               }).catch(function(error) {
-                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+                document.getElementById('log').value += 'sendMessagesText()='+ liffId + error + '\n';
               });
             }
           });

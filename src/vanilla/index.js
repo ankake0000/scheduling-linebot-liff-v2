@@ -28,7 +28,6 @@ function sendMessages(){
         document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
         liff
-        .init({ liffId: process.env.LIFF_ID })
         .sendMessages([{
           'type': 'text',
           'text': document.getElementById('message').value

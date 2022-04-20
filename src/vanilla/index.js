@@ -7,23 +7,34 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send').addEventListener('click', ()=> {
-            if (!liff.isInClient()) {
-              document.getElementById('log').value += 'sendMessagesText ng\n';
-            } else {
-              liff
-              .init({ liffId: process.env.LIFF_ID })
-              .sendMessages([{
-                'type': 'text',
-                'text': document.getElementById('message').value
-              }]).then(function() {
-                document.getElementById('log').value += 'sendMessagesText completed\n';
-              }).catch(function(error) {
-                document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
-              });
-            }
-          });
+        //     if (!liff.isInClient()) {
+        //       document.getElementById('log').value += 'sendMessagesText ng\n';
+        //     } else {
+        //       liff
+        //       .init({ liffId: process.env.LIFF_ID })
+        //       .sendMessages([{
+        //         'type': 'text',
+        //         'text': document.getElementById('message').value
+        //       }]).then(function() {
+        //         document.getElementById('log').value += 'sendMessagesText completed\n';
+        //       }).catch(function(error) {
+        //         document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+        //       });
+        //     }
+            getProfile();
+            window.alert()
+        });
+        getProfile();
+        window.alert()
     })
     .catch((error) => {
         console.log(error)
     })
 });
+
+function getProfile(){
+    liff.getProfile().then(function (profile) {
+        document.getElementById('log').value = 'Hai  ' + profile.displayName;
+        document.getElementById('log').value += profile.pictureUrl;
+    });
+}

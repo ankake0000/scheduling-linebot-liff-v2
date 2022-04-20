@@ -21,11 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
         //         document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
         //       });
         //     }
-            getProfile();
-            window.alert()
         });
         getProfile();
-        window.alert()
     })
     .catch((error) => {
         console.log(error)
@@ -34,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getProfile(){
     liff.getProfile().then(function (profile) {
-        document.getElementById('log').value = 'Hai  ' + profile.displayName;
-        document.getElementById('log').value += profile.pictureUrl;
+        document.getElementById('log').value =  profile.displayName + '\n';
+        document.getElementById('log').value += profile.userId;
     });
 }

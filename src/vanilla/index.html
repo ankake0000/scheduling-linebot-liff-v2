@@ -6,19 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="index.css" />
     <title>scheduling-input-form</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <!--jQuery JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+
     <script type="text/javascript" src="./design.js"></script>
   </head>
   <body>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <h1>登録</h1>
+    <h1>登</h1>
 
-    <input id="input-calendar" type="date"></input>
+    <div >
+      <input id="input-calendar" type="text" readonly="true"></input>
 
-    <p>
-      <select id="hour-select"></select>時
-      <select id="min-select"></select>分
-    </p>
+      <p>
+        <select id="hour-select"></select>時
+        <select id="min-select"></select>分
+      </p>
+    </div>
 
     <input id="title" type="text" name="plan_name" placeholder="予定名"></input>
     <p>

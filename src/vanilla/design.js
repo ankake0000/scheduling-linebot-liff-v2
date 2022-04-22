@@ -16,6 +16,7 @@ window.onload = function(){
     }
     min.innerHTML = min_options_html;
 
+    /**
     let input_calendar = document.getElementById("input-calendar");
 
     const today = new Date();
@@ -26,4 +27,7 @@ window.onload = function(){
 
     const today_date_str = year + '-' + month + '-' + day
     input_calendar.setAttribute('min',today_date_str)
+    */
+
+    $('#input-calendar').datepicker();
 }

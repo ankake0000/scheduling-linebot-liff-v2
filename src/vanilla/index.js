@@ -1,4 +1,5 @@
 import './index.css';
+import './design.js';
 import liff from '@line/liff'
 
 document.addEventListener("DOMContentLoaded", function() {

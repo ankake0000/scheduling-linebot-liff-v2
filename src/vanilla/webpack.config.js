@@ -70,7 +70,23 @@ const vanillaConfig = merge(
 )
 
 // TODO: Add entries for other implementations.
+const designConfig = merge(
+  commonConfig,
+  {
+    name: "design",
+    entry: './design.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js',
+      publicPath: '/'
+    },
+    plugins: [
+      new HtmlWebpackPlugin({template: './index.html'})
+    ]
+  }
+)
 
 module.exports = [
-  vanillaConfig      
+  vanillaConfig
+  ,designConfig
 ];

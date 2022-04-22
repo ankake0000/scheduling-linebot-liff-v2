@@ -6,15 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="index.css" />
     <title>scheduling-input-form</title>
+    <script type="text/javascript" src="./design.js"></script>
   </head>
   <body>
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    <h1>Sample</h1>
-    <input id="message" type="text" name="name"></input>
-    <input id="send" type="Button" value="Send"></input>
+    <h1>登録</h1>
+
+    <input id="input-calendar" type="date"></input>
 
     <p>
-      <textarea id="log" name="story" rows="5" cols="33"></textarea>
+      <select id="hour-select"></select>時
+      <select id="min-select"></select>分
     </p>
+
+    <input id="title" type="text" name="plan_name" placeholder="予定名"></input>
+    <p>
+      <textarea id="description" name="story" rows="6" cols="33" placeholder="内容"></textarea>
+    </p>
+    <input id="send" type="Button" value="追加"></input>
+
+    <p>
+      <textarea id="log" name="log" rows="5" cols="33"></textarea>
+    </p>
+
   </body>
 </html>

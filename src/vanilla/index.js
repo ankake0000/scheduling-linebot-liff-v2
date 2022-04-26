@@ -26,7 +26,7 @@ function getProfile(){
 
 function sendMessages(){
     if (!liff.isInClient()) {
-        // document.getElementById('log').value += 'sendMessagesText ng\n';
+        document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
         // document.getElementById
         title = document.getElementById('plan-title').value;
@@ -45,7 +45,7 @@ function sendMessages(){
           liff.closeWindow();
           // document.getElementById('log').value += 'sendMessagesText completed\n';
         }).catch(function(error) {
-          // document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+          document.getElementById('log').value += 'sendMessagesText()='+message + '\n' + error;
         });
       }
 }

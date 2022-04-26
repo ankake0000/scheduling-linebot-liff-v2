@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send-btn').addEventListener('click', ()=> {
-            // getProfile();
-            sendMessages();
+            getProfile();
+            // sendMessages();
         });
     })
     .catch((error) => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function getProfile(){
     liff.getProfile().then(function (profile) {
-        document.getElementById('log').value +=  profile.displayName + '\n';
+        document.getElementById('log').value =  profile.displayName + '\n';
         document.getElementById('log').value += profile.userId;
     });
 }

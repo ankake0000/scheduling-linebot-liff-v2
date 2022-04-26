@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send-btn').addEventListener('click', ()=> {
-            getProfile();
-            // sendMessages();
+            // getProfile();
+            sendMessages();
         });
     })
     .catch((error) => {
@@ -34,7 +34,7 @@ function sendMessages(){
         hour = document.getElementById('hour-select').value;
         min = document.getElementById('min-select').value;
         desc = document.getElementById('plan-description').value;
-        message = title + '\n' + date + '\n' + hour + ':' + min + '\n' + desc;
+        message = title;
 
         liff
         .sendMessages([{

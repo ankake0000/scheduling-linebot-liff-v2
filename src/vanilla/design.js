@@ -2,7 +2,8 @@ window.onload = function(){
     let hour = document.getElementById("hour-select");
     let hour_options_html = "";
     for(let h=0; h<24; h++){
-        hour_options_html += "<option value=" + h + ">" + h + "</option>"
+        const h_normalization = h.toString().padStart(2,'0')
+        hour_options_html += "<option value=" + h_normalization + ">" + h_normalization + "</option>"
     }
     hour.innerHTML = hour_options_html;
     // const sec = document.createElement('section');
@@ -12,7 +13,8 @@ window.onload = function(){
     let min = document.getElementById("min-select");
     let min_options_html="";
     for(let m=0; m<60; m++){
-        min_options_html += "<option value=" + m + ">" + m + "</option>"
+        const m_normalization = m.toString().padStart(2,'0')
+        min_options_html += "<option value=" + m_normalization + ">" + m_normalization + "</option>"
     }
     min.innerHTML = min_options_html;
 

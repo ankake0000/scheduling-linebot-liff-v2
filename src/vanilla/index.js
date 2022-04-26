@@ -40,7 +40,7 @@ function sendMessages(message_data){
         document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
         // document.getElementById
-        let message;
+        let message = "";
         Object.keys(message_data).forEach(function(value){
           message += this[value] + '\n';
         }, message_data);

@@ -2,8 +2,6 @@ import './index.css';
 import './design.js';
 import liff from '@line/liff'
 
-let message_data = {title: "", date: "", hour:"", min:"", desc:""};
-
 document.addEventListener("DOMContentLoaded", function() {
   liff
     .init({ liffId: process.env.LIFF_ID })
@@ -11,9 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Success! you can do something with LIFF API here.")
         document.getElementById('send-btn').addEventListener('click', ()=> {
             // getProfile();
-            makeMessage();
-
-            sendMessages();
+            let message_data = makeMessage();
+            sendMessages(message_data);
         });
     })
     .catch((error) => {
@@ -29,14 +26,16 @@ function getProfile(){
 }
 
 function makeMessage(){
-    message_data.title = document.getElementById('plan-title').value;
-    message_data.date = document.getElementById('plan-date').value;
-    message_data.hour = document.getElementById('hour-select').value;
-    message_data.min = document.getElementById('min-select').value;
-    message_data.desc = document.getElementById('plan-description').value;
+    let data = {title: "", date: "", hour:"", min:"", desc:""};
+    data.title = document.getElementById('plan-title').value;
+    data.date = document.getElementById('plan-date').value;
+    data.hour = document.getElementById('hour-select').value;
+    data.min = document.getElementById('min-select').value;
+    data.desc = document.getElementById('plan-description').value;
+    return data;
 }
 
-function sendMessages(){
+function sendMessages(message_data){
     if (!liff.isInClient()) {
         document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
@@ -45,7 +44,7 @@ function sendMessages(){
         Object.keys(message_data).forEach(function(value){
           message += this[value] + '\n';
         }, message_data);
-        
+
         liff
         .sendMessages([{
           'type': 'text',

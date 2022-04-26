@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     .init({ liffId: process.env.LIFF_ID })
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
-        document.getElementById('send').addEventListener('click', ()=> {
-            getProfile();
+        document.getElementById('send-btn').addEventListener('click', ()=> {
+            // getProfile();
             sendMessages();
         });
     })

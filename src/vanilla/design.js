@@ -29,5 +29,5 @@ window.onload = function(){
     input_calendar.setAttribute('min',today_date_str)
     */
 
-    $('#input-calendar').datepicker();
+    $('#plan-date').datepicker();
 }

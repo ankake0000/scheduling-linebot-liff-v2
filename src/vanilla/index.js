@@ -26,16 +26,26 @@ function getProfile(){
 
 function sendMessages(){
     if (!liff.isInClient()) {
-        document.getElementById('log').value += 'sendMessagesText ng\n';
+        // document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
+        // document.getElementById
+        title = document.getElementById('plan-title').value;
+        date = document.getElementById('plan-date').value;
+        hour = document.getElementById('hour-select').value;
+        min = document.getElementById('min-select').value;
+        desc = document.getElementById('plan-description').value;
+        message = title + '\n' + date + '\n' + hour + ':' + min + '\n' + desc;
+
         liff
         .sendMessages([{
           'type': 'text',
-          'text': document.getElementById('message').value
+          // 'text': document.getElementById('message').value
+          'text': message
         }]).then(function() {
-          document.getElementById('log').value += 'sendMessagesText completed\n';
+          liff.closeWindow();
+          // document.getElementById('log').value += 'sendMessagesText completed\n';
         }).catch(function(error) {
-          document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
+          // document.getElementById('log').value += 'sendMessagesText()=' + error + '\n';
         });
       }
 }

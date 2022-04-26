@@ -29,12 +29,12 @@ function sendMessages(){
         document.getElementById('log').value += 'sendMessagesText ng\n';
       } else {
         // document.getElementById
-        title = document.getElementById('plan-title').value;
-        date = document.getElementById('plan-date').value;
-        hour = document.getElementById('hour-select').value;
-        min = document.getElementById('min-select').value;
-        desc = document.getElementById('plan-description').value;
-        message = title;
+        const title = document.getElementById('plan-title').value;
+        const date = document.getElementById('plan-date').value;
+        const hour = document.getElementById('hour-select').value;
+        const min = document.getElementById('min-select').value;
+        const desc = document.getElementById('plan-description').value;
+        const message = title + '\n' + date + '\n' + hour + ':' + min + '\n' + desc;
 
         liff
         .sendMessages([{

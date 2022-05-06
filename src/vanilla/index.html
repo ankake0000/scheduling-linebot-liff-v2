@@ -33,20 +33,23 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
     <h1 class="">予定を登録</h1>
-    <div class="input-area">
-      <div class="form-outline">
-        <input id="plan-title" type="text" name="plan_name" class="form-control form-control-lg" />
+    <form class="input-area needs-validation" novalidate>
+
+      <div id="title-form" class="form-outline has-validation">
+        <input id="plan-title" type="text" name="plan_name" class="form-control form-control-lg" required/>
         <label class="form-label" for="plan-title">予定名</label>
-        <div class="form-helper">予定名を入力してください</div>
+        <div id="plan-title_helper" class="form-helper" >予定名を入力してください</div>
+        <div id="plan-title_invalid-feedback" class="invalid-feedback">予定名を入力してください</div>
       </div>
 
       <br>
       <br>
 
-      <div class="form-outline">
-        <input id="plan-date" type="text" class="form-control form-icon-trailing" readonly />
+      <div class="form-outline has-validation">
+        <input id="plan-date" type="text" class="form-control form-icon-trailing only" data-readonly required/>
         <label class="form-label" for="plan-date">日付</label>
-        <div class="form-helper">日付を選んでください</div>
+        <div id="plan-date_helper" class="form-helper">日付を選んでください</div>
+        <div id="plan-date_invalid-feedback" class="invalid-feedback">日付を選んでください</div>
       </div>
 
       <br>
@@ -61,7 +64,7 @@
       <div class="form-outline">
         <textarea id="plan-description" class="form-control" rows="6" cols="33"></textarea>
         <label for="plan-description" class="form-label">詳細</label>
-        <div class="form-helper">予定の詳細を入力してくださいあ</div>
+        <div class="form-helper">予定の詳細を入力してください</div>
       </div>
 
       <br>
@@ -73,7 +76,8 @@
           送信
         </button>
       </div>
-    </div>
+
+    </form>
     <!--Bootstrap-->
     <!-- MDB -->
     <script

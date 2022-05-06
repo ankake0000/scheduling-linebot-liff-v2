@@ -26,11 +26,11 @@ function getProfile(){
 }
 
 function makeMessage(){
-    let data = {title: "", date: "", hour:"", min:"", desc:""};
+    let data = {title: "", date: "", time:"", desc:""};
     data.title = document.getElementById('plan-title').value;
     data.date = document.getElementById('plan-date').value;
-    data.hour = document.getElementById('hour-select').value;
-    data.min = document.getElementById('min-select').value;
+    data.time = document.getElementById('hour-select').value;
+    data.time += document.getElementById('min-select').value;
     data.desc = document.getElementById('plan-description').value;
     return data;
 }

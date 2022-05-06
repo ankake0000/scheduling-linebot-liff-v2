@@ -32,4 +32,48 @@ window.onload = function(){
     */
 
     $('#plan-date').datepicker();
+
+    let title = document.getElementById('plan-title');
+    let title_helper = document.getElementById('plan-title_helper');
+    let date_helper = document.getElementById('plan-date_helper');
+
+    // let target = document.getElementById('title-form');
+    let target = document.getElementById('plan-title');
+    let observer = new MutationObserver(function(){
+        if(title.value === ""){
+            title_helper.style.display = 'none';
+        }else{
+            title_helper.style.display = 'block';
+        }
+    });
+    observer.observe(target, {
+        childList : true,
+        attributes : true,
+        subtree : true,
+    });
+
+    let btn = document.getElementById('send-btn');
+    btn.addEventListener('click', function(){
+        test();
+    });
+    // Loop over them and prevent submission
+}
+
+function planTitleFeedbackStatusReload(){
+    return document.defaultView.getComputedStyle(document.getElementById('plan-title_invalid-feedback'), null).display
+}
+
+
+function test(){
+    let forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+        form.addEventListener('click', function(event){
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        })
+    })
 }

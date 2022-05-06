@@ -29,7 +29,7 @@ function makeMessage(){
     let data = {title: "", date: "", time:"", desc:""};
     data.title = document.getElementById('plan-title').value;
     data.date = document.getElementById('plan-date').value;
-    data.time = document.getElementById('hour-select').value;
+    data.time = document.getElementById('hour-select').value + ":";
     data.time += document.getElementById('min-select').value;
     data.desc = document.getElementById('plan-description').value;
     return data;
@@ -45,16 +45,18 @@ function sendMessages(message_data){
           message += this[value] + '\n';
         }, message_data);
 
-        liff
-        .sendMessages([{
-          'type': 'text',
-          // 'text': document.getElementById('message').value
-          'text': message
-        }]).then(function() {
-          liff.closeWindow();
-          // document.getElementById('log').value += 'sendMessagesText completed\n';
-        }).catch(function(error) {
-          document.getElementById('log').value += 'sendMessagesText()='+message + '\n' + error;
-        });
+        if(message_data.title !== "" && message_data.date !== ""){
+            liff
+          .sendMessages([{
+            'type': 'text',
+            // 'text': document.getElementById('message').value
+            'text': message
+          }]).then(function() {
+            liff.closeWindow();
+            // document.getElementById('log').value += 'sendMessagesText completed\n';
+          }).catch(function(error) {
+            document.getElementById('log').value += 'sendMessagesText()='+message + '\n' + error;
+          });
+        }
       }
 }

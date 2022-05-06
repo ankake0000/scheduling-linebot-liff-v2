@@ -54,7 +54,7 @@ window.onload = function(){
 
     let btn = document.getElementById('send-btn');
     btn.addEventListener('click', function(){
-        test();
+        check();
     });
     // Loop over them and prevent submission
 }
@@ -64,7 +64,7 @@ function planTitleFeedbackStatusReload(){
 }
 
 
-function test(){
+function check(){
     let forms = document.querySelectorAll('.needs-validation');
     Array.prototype.slice.call(forms)
     .forEach(function (form) {

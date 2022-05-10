@@ -1,4 +1,30 @@
 window.onload = function(){
+
+    $('#plan-date').datepicker({
+        showButtonPanel: true
+        ,currentText: "今日"
+        ,closeText: "閉じる"
+        ,onClose: function(evt, ui){
+            $(this).trigger('blur');
+        }
+    });
+
+    // avoid overlap label
+    $('#plan-date').bind('blur',(event) => {
+        let field = event.target;
+        if (field.value.length > 0) {
+          field.classList.add('active');
+        } else {
+          field.classList.remove('active');
+        }
+        formHelperValidation('#plan-date_helper', '#plan-date_invalid-feedback')
+    });
+
+    $(".readonly").on('keydown', function(e){
+        if(e.keyCode != 9) // ignore tab
+            e.preventDefault();
+    });
+
     let hour = document.getElementById("hour-select");
     let hour_options_html = "";
     for(let h=0; h<24; h++){
@@ -6,9 +32,6 @@ window.onload = function(){
         hour_options_html += "<option value=" + h_normalization + ">" + h_normalization + "</option>"
     }
     hour.innerHTML = hour_options_html;
-    // const sec = document.createElement('section');
-    // sec.innerHTML = hour_options_html;
-    // document.querySelector('#hour-select').appendChild(sec);
 
     let min = document.getElementById("min-select");
     let min_options_html="";
@@ -18,49 +41,31 @@ window.onload = function(){
     }
     min.innerHTML = min_options_html;
 
-    /**
-    let input_calendar = document.getElementById("input-calendar");
-
-    const today = new Date();
-    const year = today.getFullYear()
-    const month_base = today.getMonth() + 1
-    const month = month_base.toString().padStart(2,'0')
-    const day = today.getDate()
-
-    const today_date_str = year + '-' + month + '-' + day
-    input_calendar.setAttribute('min',today_date_str)
-    */
-
-    $('#plan-date').datepicker();
-
-    let title = document.getElementById('plan-title');
-    let title_helper = document.getElementById('plan-title_helper');
-    let date_helper = document.getElementById('plan-date_helper');
-
-    // let target = document.getElementById('title-form');
-    let target = document.getElementById('plan-title');
-    let observer = new MutationObserver(function(){
-        if(title.value === ""){
-            title_helper.style.display = 'none';
-        }else{
-            title_helper.style.display = 'block';
-        }
-    });
-    observer.observe(target, {
-        childList : true,
-        attributes : true,
-        subtree : true,
-    });
 
     let btn = document.getElementById('send-btn');
     btn.addEventListener('click', function(){
         check();
     });
+
+    // Add
+    let plan_title = document.getElementById('plan-title');
+    plan_title.addEventListener('keyup', (event) => {
+        formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback')
+    })
     // Loop over them and prevent submission
 }
 
 function planTitleFeedbackStatusReload(){
     return document.defaultView.getComputedStyle(document.getElementById('plan-title_invalid-feedback'), null).display
+}
+
+function formHelperValidation(helper_id, invalid_feedback_id){
+    if($(invalid_feedback_id).css('display') == 'none' ){
+        $(helper_id).show('slow');
+    }else{
+        // $(helper_id).hide();
+        $(helper_id).hide('slow');
+    }
 }
 
 
@@ -74,6 +79,8 @@ function check(){
                 event.stopPropagation()
             }
             form.classList.add('was-validated')
+            formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback');
+            formHelperValidation('#plan-date_helper', '#plan-date_invalid-feedback')
         })
     })
 }

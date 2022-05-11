@@ -27,11 +27,15 @@ function getProfile(){
 
 function makeMessage(){
     let data = {title: "", date: "", time:"", desc:""};
-    data.title = document.getElementById('plan-title').value;
-    data.date = document.getElementById('plan-date').value;
-    data.time = document.getElementById('hour-select').value + ":";
-    data.time += document.getElementById('min-select').value;
-    data.desc = document.getElementById('plan-description').value;
+    // data.title = document.getElementById('plan-title').value;
+    // data.date = document.getElementById('plan-date').value;
+    // data.time = document.getElementById('hour-select').value + ":";
+    // data.time += document.getElementById('min-select').value;
+    // data.desc = document.getElementById('plan-description').value;
+    data.title = $('#plan-title').val();
+    data.date = $('#plan-date').val();
+    data.time = $('#hour-select').val() + ":" + $('#min-select').val();
+    data.desc = $('#plan-description').val();
     return data;
 }
 

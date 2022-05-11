@@ -9,9 +9,9 @@ window.onload = function(){
         }
     });
 
-    // avoid overlap label
-    $('#plan-date').bind('blur',(event) => {
-        let field = event.target;
+    // avoid overlaping label
+    $('#plan-date').bind('blur',(element) => {
+        let field = element.target;
         if (field.value.length > 0) {
           field.classList.add('active');
         } else {
@@ -25,33 +25,41 @@ window.onload = function(){
             e.preventDefault();
     });
 
-    let hour = document.getElementById("hour-select");
     let hour_options_html = "";
     for(let h=0; h<24; h++){
         const h_normalization = h.toString().padStart(2,'0')
         hour_options_html += "<option value=" + h_normalization + ">" + h_normalization + "</option>"
     }
-    hour.innerHTML = hour_options_html;
+    $('#hour-select').html(hour_options_html);
+    // let hour = document.getElementById("hour-select");
+    // hour.innerHTML = hour_options_html;
 
-    let min = document.getElementById("min-select");
     let min_options_html="";
     for(let m=0; m<60; m++){
         const m_normalization = m.toString().padStart(2,'0')
         min_options_html += "<option value=" + m_normalization + ">" + m_normalization + "</option>"
     }
-    min.innerHTML = min_options_html;
+    $('#min-select').html(min_options_html);
+    // let min = document.getElementById("min-select");
+    // min.innerHTML = min_options_html;
 
 
-    let btn = document.getElementById('send-btn');
-    btn.addEventListener('click', function(){
+    $('#send-btn').on('click', ()=>{
         check();
     });
+    // let send_btn = document.getElementById('send-btn');
+    // send_btn.addEventListener('click', function(){
+    //     check();
+    // });
 
-    // Add
-    let plan_title = document.getElementById('plan-title');
-    plan_title.addEventListener('keyup', (event) => {
+    $('#plan-title').on('keyup',()=>{
         formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback')
     })
+    // let plan_title = document.getElementById('plan-title');
+    // plan_title.addEventListener('keyup', () => {
+    //     formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback')
+    // })
+
     // Loop over them and prevent submission
 }
 
@@ -63,7 +71,6 @@ function formHelperValidation(helper_id, invalid_feedback_id){
     if($(invalid_feedback_id).css('display') == 'none' ){
         $(helper_id).show('slow');
     }else{
-        // $(helper_id).hide();
         $(helper_id).hide('slow');
     }
 }

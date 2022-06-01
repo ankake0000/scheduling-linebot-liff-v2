@@ -1,5 +1,7 @@
 window.onload = function(){
 
+    let hoge = location.href.split("?")[1];
+
     $('#plan-date').datepicker({
         showButtonPanel: true
         ,currentText: "今日"
@@ -59,7 +61,7 @@ window.onload = function(){
     // plan_title.addEventListener('keyup', () => {
     //     formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback')
     // })
-
+    $('#plan-title').val(hoge);
     // Loop over them and prevent submission
 }
 

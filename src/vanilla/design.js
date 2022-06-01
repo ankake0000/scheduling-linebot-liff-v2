@@ -11,13 +11,13 @@ window.onload = function(){
         let input_plan_min = input_data_field[3].split("=")[1]
         let input_plan_desc = input_data_field[4].split("=")[1]
 
-        $('#form-title').text(input_plan_title);
-        $('#plan-date').text(input_plan_date);
-        $('#hour-select').val(input_plan_hour);
-        $('#min-select').val(input_plan_min);
-        $('#plan-description').text(input_plan_desc);
+        $('#plan-title').val(input_data_field.length);
+        // $('#plan-date').val(input_plan_date);
+        // $('#hour-select').val(input_plan_hour);
+        // $('#min-select').val(input_plan_min);
+        // $('#plan-description').text(input_plan_desc);
     }
-    
+
     $('#plan-date').datepicker({
         showButtonPanel: true
         ,currentText: "今日"

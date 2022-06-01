@@ -1,7 +1,23 @@
 window.onload = function(){
 
-    let hoge = location.href.split("?")[1];
+    let location_field = location.href.split("?");
 
+    if(location_field.length > 1){
+        $('#form-title').text("予定の編集")
+        let input_data_field = location_field[1].split("&")
+        let input_plan_title = input_data_field[0].split("=")[1]
+        let input_plan_date = input_data_field[1].split("=")[1]
+        let input_plan_hour = input_data_field[2].split("=")[1]
+        let input_plan_min = input_data_field[3].split("=")[1]
+        let input_plan_desc = input_data_field[4].split("=")[1]
+
+        $('#form-title').text(input_plan_title);
+        $('#plan-date').text(input_plan_date);
+        $('#hour-select').val(input_plan_hour);
+        $('#min-select').val(input_plan_min);
+        $('#plan-description').text(input_plan_desc);
+    }
+    
     $('#plan-date').datepicker({
         showButtonPanel: true
         ,currentText: "今日"
@@ -61,7 +77,7 @@ window.onload = function(){
     // plan_title.addEventListener('keyup', () => {
     //     formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback')
     // })
-    $('#plan-title').val(hoge);
+
     // Loop over them and prevent submission
 }
 

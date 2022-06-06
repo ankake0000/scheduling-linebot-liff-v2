@@ -6,19 +6,19 @@ window.onload = function(){
         $('#form-title').text("予定の編集")
         let decode_uri = decodeURIComponent(location_field[1]);
         // URL Persent Decode Required
-        // let input_data_field = location_field[1].split("&")
-        // let input_plan_title = input_data_field[0].split("=")[1]
-        // let input_plan_date = input_data_field[1].split("=")[1]
-        // let input_plan_hour = input_data_field[2].split("=")[1]
-        // let input_plan_min = input_data_field[3].split("=")[1]
-        // let input_plan_desc = input_data_field[4].split("=")[1]
+        let input_data_field = decode_uri.split("&")
+        let input_plan_title = input_data_field[0].split("=")[1]
+        let input_plan_date = input_data_field[1].split("=")[1]
+        let input_plan_hour = input_data_field[2].split("=")[1]
+        let input_plan_min = input_data_field[3].split("=")[1]
+        let input_plan_desc = input_data_field[4].split("=")[1]
 
-        // $('#plan-title').val(location_field[1]);
-        $('#plan-description').text(decode_uri);
-        // $('#plan-date').val(input_plan_date);
-        // $('#hour-select').val(input_plan_hour);
-        // $('#min-select').val(input_plan_min);
-        // $('#plan-description').text(input_plan_desc);
+        // $('#plan-description').text(decode_uri);
+        $('#plan-title').val(input_plan_title);
+        $('#plan-date').val(input_plan_date);
+        $('#hour-select').val(input_plan_hour);
+        $('#min-select').val(input_plan_min);
+        $('#plan-description').text(input_plan_desc);
     }
 
     $('#plan-date').datepicker({

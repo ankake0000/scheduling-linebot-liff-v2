@@ -42,7 +42,7 @@ function sendMessages(message_data){
         let message = "";
         let edit_id = $('#plan-id').val;
         // if(Number.isFinite(edit_id)){ message = edit_id.toString() + '\n'}
-        message = edit_id + '\n'
+        message = edit_id.toString() + '\n'
         Object.keys(message_data).forEach(function(value){
             message += this[value] + '\n';
         }, message_data);

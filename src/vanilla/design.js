@@ -110,12 +110,12 @@ function check(){
     .forEach(function (form) {
         form.addEventListener('click', function(event){
             if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
+                event.preventDefault();
+                event.stopPropagation();
             }
-            form.classList.add('was-validated')
+            form.classList.add('was-validated');
             formHelperValidation('#plan-title_helper', '#plan-title_invalid-feedback');
-            formHelperValidation('#plan-date_helper', '#plan-date_invalid-feedback')
+            formHelperValidation('#plan-date_helper', '#plan-date_invalid-feedback');
         })
     })
 }

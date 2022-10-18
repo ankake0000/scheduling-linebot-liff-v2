@@ -26,8 +26,9 @@ window.onload = function(){
     });
 
     let hour_options_html = "";
-    for(let h=0; h<24; h++){
-        const h_normalization = h.toString().padStart(2,'0');
+    for(let h=6; h<31; h++){
+        hour = h % 25
+        const h_normalization = hour.toString().padStart(2,'0');
         hour_options_html += "<option value=" + h_normalization + ">" + h_normalization + "</option>";
     }
     $('#hour-select').html(hour_options_html);

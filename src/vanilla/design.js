@@ -26,6 +26,7 @@ window.onload = function(){
     });
 
     let hour_options_html = "";
+    let hour = 0
     for(let h=6; h<31; h++){
         hour = h % 25
         const h_normalization = hour.toString().padStart(2,'0');
